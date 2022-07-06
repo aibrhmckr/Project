@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "epost": "alicakir325@gmail.com",
+      "password": "12345678",
+      "name": "Ali İbrahim",
+      "surname": "Çakır"
+    }
+  ],
+  "isLogin": {
+    "logged": false,
+    "epost": "",
+    "password": "",
+    "name": "",
+    "surname": ""
+  }
+}
