@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 
 import { logging,epost,password} from "./stores/Log";
 import { useDispatch } from "react-redux";
@@ -36,6 +36,7 @@ const Signin = () => {
           dispatch(password(Password))
           dispatch(logging())
         }}
+        
       >
         <b>Giriş Yap</b>
       </button>

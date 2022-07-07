@@ -1,5 +1,5 @@
-import Signin from "./Signin";
-import Signup from "./Signup";
+import Signin from "../components/Signin";
+import Signup from "../components/Signup";
 
 import * as React from "react";
 import PropTypes from "prop-types";

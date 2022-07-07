@@ -6,12 +6,5 @@
       "name": "Ali İbrahim",
       "surname": "Çakır"
     }
-  ],
-  "isLogin": {
-    "logged": false,
-    "epost": "",
-    "password": "",
-    "name": "",
-    "surname": ""
-  }
+  ]
 }
