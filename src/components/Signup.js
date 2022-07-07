@@ -1,6 +1,7 @@
 import "./Signup.css"
 
 const Signup = () => {
+
   return (
     <div className="user_info">
       <form>
@@ -21,7 +22,10 @@ const Signup = () => {
           <b>Şifre</b>
           <input className="text-field"/>
         </div>
-        <button className="signup_button">Kaydol</button>
+        <button className="signup_button" onClick={()=>{
+
+        }}>Kaydol</button>
+
       </form>
     </div>
   );
