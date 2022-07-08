@@ -41,7 +41,7 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-const Login = () => {
+const Login = ({setIsLog}) => {
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -63,7 +63,7 @@ const Login = () => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          {<Signin />}
+          {<Signin setIsLog={setIsLog}/>}
         </TabPanel>
         <TabPanel value={value} index={1}>
           {<Signup/>}

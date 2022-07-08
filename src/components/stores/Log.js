@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Users } from "../../api/gecici";
 import { users } from "../../api/db.json";
+
 export const logSlice = createSlice({
   name: "counter",
   initialState: {
@@ -28,79 +29,18 @@ export const logSlice = createSlice({
       state.value.surname = action.payload;
     },
 
-    logging: (state) => {
-      /*
-      Users.forEach((element) => {
-        if (
-          state.value.epost === element.epost &&
-          state.value.password === element.password
-        ) {
-          console.log("Giriş yapıldı");
-          state.value.auth = true;
-          element.logged = true;
+    logging: (state,action) => {
 
-          const LogUser = {
-            epost: state.value.epost,
-            password: state.value.password,
-            name: state.value.name,
-            surname: state.value.surname,
-          }; //silincek
-
-
-          // burada giriş yaptığında giriş veri tabanına kaydetsin ve kullancı girili kaslın
-        } else {
-          console.log("Kullanıcı adı veya parola hatalı");
-        }
-      });*/
-
-
+      localStorage.setItem("loggd","true")
+      localStorage.setItem("epost",state.value.epost)
     },
     save: (state) => {
-      /*
-      if (
-        state.value.epost !== "" &&
-        state.value.password !== "" &&
-        state.value.name !== "" &&
-        state.value.surname !== ""
-      ) {
-        ////////////////
 
-        let find = false;
-        Users.forEach((element) => {
-          if (state.value.epost === element.epost) {
-            find = true;
-            console.log("E posta kullanılıyor");
-          }
-          
-        });
-        if(find===false){
-          const newUser = {
-            epost: state.value.epost,
-            password: state.value.password,
-            name: state.value.name,
-            surname: state.value.surname,
-            logged:true
-          };
-          Users.push(newUser)
-        }
-        ////////////////////////////
-        console.log("Kaydedildi");
-        //Burada kullanıcıyı genel veri tabanına kaydetsin ve giriş veri tabanına da kaydetsin
-        //ardından kullanıcı girili kalsın
-        
-      } else {
-        console.log("Lütfen tüm alanları doldurun");
-      }*/
     
     },
     logout: (state) => {
-      Users.forEach((element) => {
-        if (state.value.epost === element.epost) {
-          //çıkış yap
-
-        }
-        
-      });
+      localStorage.setItem("loggd","false")
+      localStorage.removeItem("epost")
     },
   },
 });

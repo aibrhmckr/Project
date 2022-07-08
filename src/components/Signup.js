@@ -10,6 +10,7 @@ const Signup = () => {
   const [Epost ,setEpost]=useState("");
   const [Password,setPassword]=useState("");
 
+  
   return (
     <div className="user_info">
 

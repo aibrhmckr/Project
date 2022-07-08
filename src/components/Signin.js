@@ -5,15 +5,25 @@ import { logging,epost,password} from "./stores/Log";
 import { useDispatch } from "react-redux";
 
 import "./Signin.css";
+import {Users} from "../api/gecici"
 
-const Signin = () => {
+const Signin = ({setIsLog}) => {
   //const epost = useSelector((state) => state.Log.value.epost);
   //const password = useSelector((state) => state.Log.value.password);
 
     const [Epost ,setEpost]=useState("");
     const [Password,setPassword]=useState("");
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
+    const LoginHandler=()=>{
+      dispatch(epost(Epost))
+      dispatch(password(Password))
+        const user = Users.find(user=>user.epost===Epost && user.password===Password)
+        if(user){
+          setIsLog("true")
+          dispatch(logging())
+        }
+    }
   return (
     <div className="user_info">
       <div>
@@ -31,13 +41,9 @@ const Signin = () => {
       </div>
       <button
         className="login_button"
-        onClick={() => {
-          dispatch(epost(Epost))
-          dispatch(password(Password))
-          dispatch(logging())
-        }}
-        
-      >
+        onClick={
+          LoginHandler
+        }>
         <b>Giriş Yap</b>
       </button>
 
