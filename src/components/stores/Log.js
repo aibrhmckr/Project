@@ -35,7 +35,10 @@ export const logSlice = createSlice({
       localStorage.setItem("epost",state.value.epost)
     },
     save: (state) => {
+      const user = Users.find(user=>user.epost===state.value.epost && user.password===state.value.password)
 
+      localStorage.setItem("loggd","true")
+      localStorage.setItem("epost",state.value.epost)
     
     },
     logout: (state) => {

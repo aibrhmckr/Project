@@ -7,7 +7,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
 import "./Login.css"
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,8 +48,9 @@ const Login = ({setIsLog}) => {
 
   return (
     <div className="tabbar">
-      <h3>Merhaba,</h3>
-      <h5>Giriş yap veya hesap oluştur!</h5>
+      <h3 className="merhaba">Merhaba,</h3>
+      <h5 className="girisYap">Giriş yap veya hesap oluştur!</h5>
+      <div className="log">
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderColor: "divider" ,marginLeft:7}}>
           <Tabs
@@ -66,10 +66,11 @@ const Login = ({setIsLog}) => {
           {<Signin setIsLog={setIsLog}/>}
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {<Signup/>}
+          {<Signup setIsLog={setIsLog}/>}
         </TabPanel>
-
       </Box>
+      </div>
+
     </div>
   );
 };

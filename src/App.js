@@ -1,27 +1,29 @@
 import Login from "./views/Login";
-//import { routes } from "./routes";
-import React, {useEffect, useState } from "react";
+import { routes } from "./routes";
+import React, { useEffect, useState } from "react";
 //import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./views/Home";
 import { useSelector } from "react-redux";
-import {Users} from "./api/gecici"
+import { Users } from "./api/gecici";
+import { Route, Routes, Redirect, Link } from "react-router-dom";
 
 function App() {
-  const appin = useSelector((state)=>state.Log.value)
-  const Epost = useSelector((state)=>state.Log.Epost)
+  const appin = useSelector((state) => state.Log.value);
+  const Epost = useSelector((state) => state.Log.Epost);
 
-  const [isLog,setIsLog]=useState(localStorage.getItem("loggd"));
+  const [isLog, setIsLog] = useState(localStorage.getItem("loggd"));
   useEffect(() => {
-
-    setIsLog(localStorage.getItem("loggd"))
-    console.log(typeof localStorage.getItem("loggd"))
-    
-  }, [])
-  console.log(localStorage.getItem("epost"))
-  console.log(localStorage.getItem("loggd"))
+    setIsLog(localStorage.getItem("loggd"));
+    //console.log(typeof localStorage.getItem("loggd"))
+  }, []);
+  //console.log(localStorage.getItem("epost"))
+  //console.log(localStorage.getItem("loggd"))
+  console.log(routes);
   return (
     <div>
-       {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>} 
+
+      {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>}
+      {/* {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>} */}
     </div>
   );
 }

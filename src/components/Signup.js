@@ -2,15 +2,26 @@ import { useDispatch } from "react-redux";
 import "./Signup.css"
 import { name,surname,epost,password,save } from "./stores/Log";
 import { useState } from "react";
+import {Users} from "../api/gecici"
 
-const Signup = () => {
+const Signup = ({setIsLog}) => {
   const dispatch = useDispatch();
   const[Name,setName]=useState("");
   const[SurName,setSurname]=useState("");
   const [Epost ,setEpost]=useState("");
   const [Password,setPassword]=useState("");
 
-  
+  const clickHandler=()=>{
+    dispatch(epost(Epost))
+    dispatch(password(Password))
+    dispatch(name(Name))
+    dispatch(surname(SurName))
+      const user = Users.find(user=>user.epost!==Epost)
+      if(user){
+        setIsLog("true")
+        dispatch(save())
+      }
+  }
   return (
     <div className="user_info">
 
@@ -31,13 +42,7 @@ const Signup = () => {
           <b>Şifre</b>
           <input className="text-field" onChange={(e) => {setPassword(e.target.value)}} />
         </div>
-        <button className="signup_button" onClick={()=>{
-          dispatch(name(Name))
-          dispatch(surname(SurName))
-          dispatch(epost(Epost))
-          dispatch(password(Password))
-          dispatch(save())
-        }}>Kaydol</button>
+        <button className="signup_button" onClick={clickHandler}>Kaydol</button>
     </div>
   );
 };
