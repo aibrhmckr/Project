@@ -18,15 +18,14 @@ function App() {
   }, []);
   //console.log(localStorage.getItem("epost"))
   //console.log(localStorage.getItem("loggd"))
-  console.log(routes);
   return (
     <div>
        <Routes>
-        <Route path="/login" element={<Login setIsLog={setIsLog} />} />
-        <Route path="/home" element={<Home setIsLog={setIsLog} />}/>
-        <Route element={<ProtectedRoutes />}></Route>
-      </Routes> 
-
+        <Route path="/login" element={<Login setIsLog={setIsLog}/>} />
+        <Route element={<ProtectedRoutes isLog={isLog} setIsLog={setIsLog}/>} >
+        <Route path="/home" element={<Home setIsLog={setIsLog}/>} />
+        </Route>
+      </Routes>
       {/* {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>} */}
     </div>
   );
