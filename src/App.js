@@ -1,11 +1,11 @@
 import Login from "./views/Login";
 import { routes } from "./routes";
 import React, { useEffect, useState } from "react";
-//import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./views/Home";
 import { useSelector } from "react-redux";
 import { Users } from "./api/gecici";
 import { Route, Routes, Redirect, Link } from "react-router-dom";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 function App() {
   const appin = useSelector((state) => state.Log.value);
@@ -21,8 +21,12 @@ function App() {
   console.log(routes);
   return (
     <div>
+       <Routes>
+        <Route path="/login" element={<Login setIsLog={setIsLog} />} />
+        <Route path="/home" element={<Home setIsLog={setIsLog} />}/>
+        <Route element={<ProtectedRoutes />}></Route>
+      </Routes> 
 
-      {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>}
       {/* {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>} */}
     </div>
   );

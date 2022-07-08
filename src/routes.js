@@ -4,13 +4,13 @@ export const routes=[
     {
         path: '/',
         exact:true,
-        component:Home,
+        component:<Home/>,
         auth:true
     },
     {
         path:'/login',
         exact:true,
-        component:Login,
+        component:<Login/>,
         auth:false
     }
 ]
