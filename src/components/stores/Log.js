@@ -11,6 +11,7 @@ export const logSlice = createSlice({
       name: "",
       surname: "",
       auth: false,
+      ISLog: localStorage.getItem("loggd")
     },
   },
   reducers: {
@@ -45,10 +46,13 @@ export const logSlice = createSlice({
       localStorage.setItem("loggd","false")
       localStorage.removeItem("epost")
     },
+    ISLog:(state)=>{
+
+    }
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { logging, epost, password, name, surname, save, logout } = logSlice.actions;
+export const { logging, epost, password, name, surname, save, logout,ISLog } = logSlice.actions;
 
 export default logSlice.reducer;
