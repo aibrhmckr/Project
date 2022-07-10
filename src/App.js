@@ -18,12 +18,12 @@ function App() {
     //console.log(typeof localStorage.getItem("loggd"))
   }, []);
   //console.log(localStorage.getItem("epost"))
-  //console.log(localStorage.getItem("loggd"))
+  console.log(localStorage.getItem("loggd"));
+  console.log(isLog);
   return (
     <div>
       <Routes>
-
-          <Route path="/login" element={<Login setIsLog={setIsLog} />} />
+        <Route path="/login" element={<Login setIsLog={setIsLog} />} />
 
         <Route element={<ProtectedLogin isLog={isLog} setIsLog={setIsLog} />}>
           <Route path="/home" element={<Home setIsLog={setIsLog} />} />

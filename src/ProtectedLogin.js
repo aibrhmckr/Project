@@ -9,6 +9,6 @@ const ProtectedRoutes = ({ isLog, setIsLog }) => {
   if (isLog === "true") {
     bool = true;
   }
-  return bool ? <Home setIsLog={setIsLog} /> : <Login setIsLog={setIsLog} />;
+  return bool ? <Outlet setIsLog={setIsLog} /> : <Navigate to="/login" setIsLog={setIsLog} />;
 };
 export default ProtectedRoutes;
