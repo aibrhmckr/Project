@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Home from "./views/Home";
 import { useSelector } from "react-redux";
 import { Users } from "./api/gecici";
-import { Route, Routes, Redirect, Link } from "react-router-dom";
+import { Route, Routes, Redirect, Link, Router } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import ProtectedLogin from "./ProtectedLogin";
 
@@ -23,7 +23,10 @@ function App() {
   return (
     <div>
       <Routes>
+        <Route element={<ProtectedRoutes isLog={isLog} setIsLog={setIsLog} />}>
         <Route path="/login" element={<Login setIsLog={setIsLog} />} />
+
+        </Route>
 
         <Route element={<ProtectedLogin isLog={isLog} setIsLog={setIsLog} />}>
           <Route path="/home" element={<Home setIsLog={setIsLog} />} />
