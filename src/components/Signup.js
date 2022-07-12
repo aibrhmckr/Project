@@ -12,6 +12,12 @@ const Signup = ({setIsLog}) => {
   const [Password,setPassword]=useState("");
 
   const clickHandler=()=>{
+    const newUser= {
+      epost: Epost,
+      password: Password,
+      name: Name,
+      surname: SurName,
+    }
     dispatch(epost(Epost))
     dispatch(password(Password))
     dispatch(name(Name))
@@ -20,6 +26,7 @@ const Signup = ({setIsLog}) => {
       if(user){
         setIsLog("true")
         dispatch(save())
+        Users.push(newUser)
       }
   }
   return (
