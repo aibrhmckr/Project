@@ -29,7 +29,7 @@ function App() {
         </Route>
 
         <Route element={<ProtectedLogin isLog={isLog} setIsLog={setIsLog} />}>
-          <Route path="/home" element={<Home setIsLog={setIsLog} />} />
+          <Route path="/" element={<Home setIsLog={setIsLog} />} />
         </Route>
       </Routes>
       {/* {isLog==="true"?<Home setIsLog={setIsLog}/>:<Login setIsLog={setIsLog}/>} */}
