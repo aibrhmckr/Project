@@ -1,6 +1,7 @@
 {
   "name": "react-complete-guide",
   "version": "0.1.0",
+  "homepage": "https://gitname.github.io/home",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
