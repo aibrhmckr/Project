@@ -32,5 +32,25 @@
       "id": 10,
       "title": "Okul"
     }
+  ],
+  "todos": [
+    {
+      "id": 0,
+      "user": "alicakir#TR28",
+      "isDone": false,
+      "task": "Ekmek al"
+    },
+    {
+      "id": 1,
+      "user": "alicakir#TR28",
+      "isDone": false,
+      "task": "Ekmek al"
+    },
+    {
+      "id": 2,
+      "user": "faikburak#TR28",
+      "isDone": false,
+      "task": "Evi temizle"
+    }
   ]
 }

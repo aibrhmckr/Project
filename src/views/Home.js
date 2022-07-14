@@ -19,13 +19,13 @@ const kullanici = localStorage.getItem("epost")+"#TR28"
     console.log(departments)
 
 const fetchData=async()=>{
-  await fetch("http://localhost:3004/departments")
+  await fetch("http://localhost:3004/todos")
   .then((response) => response.json())
   .then((data) => setDepartments(data))
   .catch((error) => console.log(error));
 }
 const onAdd = async (id, title) => {
-  await fetch("http://localhost:3004/departments", {
+  await fetch("http://localhost:3004/todos", {
     method: "POST",
     body: JSON.stringify({
       id: 10,
