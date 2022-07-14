@@ -1,15 +1,16 @@
 import { IconButton } from "@mui/material";
 import { Button } from "semantic-ui-react";
-
+import "../views/Home.css"
 const Tasks = () => {
   return (
     <div>
       <div className="kart">
-        Görev<Button.Group>
-          <Button icon="play" />
-          <Button icon="check" />
-          <Button icon="edit" />
-        </Button.Group>
+        Görev
+        <div className="button-group">
+            <button>Edit</button>
+            <button>Complete</button>
+            <button>Delete</button>
+        </div>
       </div>
     </div>
   );
