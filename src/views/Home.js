@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../components/stores/Log";
 import Tasks from "../components/Tasks";
 import "./Home.css";
+import { v4 as uuid } from 'uuid';
+
 const Home = ({ setIsLog }) => {
   const dispatch = useDispatch();
 
@@ -17,19 +19,22 @@ const kullanici = localStorage.getItem("epost")+"#TR28"
       fetchData();
     }, [])
     console.log(departments)
-
-const fetchData=async()=>{
+    const unique_id = uuid();
+    const small_id = unique_id.slice(0,8)
+    const fetchData=async()=>{
   await fetch("http://localhost:3004/todos")
   .then((response) => response.json())
   .then((data) => setDepartments(data))
   .catch((error) => console.log(error));
 }
-const onAdd = async (id, title) => {
+const onAdd = async () => {
   await fetch("http://localhost:3004/todos", {
     method: "POST",
     body: JSON.stringify({
-      id: 10,
-      title: "Okul"
+      id: unique_id,
+      user:kullanici,
+      isDone:false,
+      task:text
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8"
@@ -43,12 +48,10 @@ const onAdd = async (id, title) => {
       }
     })
     .then((data) => {
-      fetchData()
+      setDepartments((users) => [...users, data]);
     })
     .catch((error) => console.log(error));
 };
-
-
 
 
   return (

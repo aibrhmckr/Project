@@ -35,22 +35,10 @@
   ],
   "todos": [
     {
-      "id": 0,
+      "id": "4f55d078-3d53-4035-8c6f-239a43c8d1db",
       "user": "alicakir#TR28",
       "isDone": false,
-      "task": "Ekmek al"
-    },
-    {
-      "id": 1,
-      "user": "alicakir#TR28",
-      "isDone": false,
-      "task": "Ekmek al"
-    },
-    {
-      "id": 2,
-      "user": "faikburak#TR28",
-      "isDone": false,
-      "task": "Evi temizle"
+      "task": "metine yemek yaptır"
     }
   ]
 }
