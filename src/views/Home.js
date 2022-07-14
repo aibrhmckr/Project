@@ -13,17 +13,17 @@ const Home = ({ setIsLog }) => {
   const kullanici = localStorage.getItem("epost") + "#TR28";
   let task = [];
 
-  const [departments, setDepartments] = useState([]);
+  const [todos, setTodos] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(departments);
+console.log(todos)
   const unique_id = uuid();
   // const small_id = unique_id.slice(0,8)
   const fetchData = async () => {
     await fetch("http://localhost:3004/todos")
       .then((response) => response.json())
-      .then((data) => setDepartments(data))
+      .then((data) => setTodos(data))
       .catch((error) => console.log(error));
   };
   const onAdd = async () => {
@@ -47,15 +47,29 @@ const Home = ({ setIsLog }) => {
         }
       })
       .then((data) => {
-        setDepartments((users) => [...users, data]);
+        setTodos((users) => [...users, data]);
       })
       .catch((error) => console.log(error));
   };
 
+  const onDelete = async (id) => {
+    await fetch(`http://localhost:3004/todos/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          return;
+        } else {
+          setTodos(
+            todos.filter((user) => {
+              return user.id !== id;
+            })
+          );
+        }
+      })
+      .catch((error) => console.log(error));
+  };
 
-
-
-  
   return (
     <div>
       <button
@@ -91,14 +105,17 @@ const Home = ({ setIsLog }) => {
             }
           }}
         >
-          {" "}
-          Add{" "}
+          Add
         </button>
       </div>
+      {todos.map((user)=>(
+        <Tasks 
+        id={user.id}
+        task={user.task}
+        onDelete={onDelete}
+        />
+      ))}
 
-      <div>
-        <Tasks></Tasks>
-      </div>
     </div>
   );
 };

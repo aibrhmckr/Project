@@ -1,15 +1,19 @@
 import { IconButton } from "@mui/material";
 import { Button } from "semantic-ui-react";
-import "../views/Home.css"
-const Tasks = () => {
+import "../views/Home.css";
+
+const Tasks = ({ id, onDelete, task }) => {
+  const handleDelete = () => {
+    onDelete(id);
+  };
   return (
     <div>
       <div className="kart">
-        Görev
+        {task}
         <div className="button-group">
-            <button>Edit</button>
-            <button>Complete</button>
-            <button>Delete</button>
+          <button>Edit</button>
+          <button>Complete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </div>
     </div>
