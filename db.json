@@ -1,44 +1,16 @@
 {
-  "departments": [
-    {
-      "id": 1,
-      "title": "İnsan Kaynakları"
-    },
-    {
-      "id": 2,
-      "title": "Pazarlama"
-    },
-    {
-      "id": 3,
-      "title": "Teknik Mimari"
-    },
-    {
-      "id": 4,
-      "title": "Krediler"
-    },
-    {
-      "id": 5,
-      "title": "Yönetim"
-    },
-    {
-      "id": 8,
-      "title": "Müşteri Hizmetleri"
-    },
-    {
-      "id": 9,
-      "title": "Araba Al"
-    },
-    {
-      "id": 10,
-      "title": "Okul"
-    }
-  ],
   "todos": [
     {
       "id": "4f55d078-3d53-4035-8c6f-239a43c8d1db",
       "user": "alicakir#TR28",
       "isDone": false,
       "task": "metine yemek yaptır"
+    },
+    {
+      "id": "2b2e7e9b-987a-4d62-aaf9-e808f4379fde",
+      "user": "alicakir#TR28",
+      "isDone": false,
+      "task": "Boya al"
     }
   ]
 }
