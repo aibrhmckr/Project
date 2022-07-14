@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Users } from "../../api/gecici";
-import { users } from "../../api/db.json";
 
 export const logSlice = createSlice({
   name: "counter",
