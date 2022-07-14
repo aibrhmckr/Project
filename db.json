@@ -1,3 +1,22 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "4a350561-9329-4477-ab58-b532a07b471a",
+      "user": "faikburak#TR28",
+      "isDone": false,
+      "task": "görev a"
+    },
+    {
+      "id": "20d42304-5772-49bd-add1-9392b6e0fc28",
+      "user": "faikburak#TR28",
+      "isDone": false,
+      "task": "sucuk al"
+    },
+    {
+      "id": "01094854-e99c-4965-9183-7b3705c076a7",
+      "user": "faikburak#TR28",
+      "isDone": false,
+      "task": "kitap al"
+    }
+  ]
 }

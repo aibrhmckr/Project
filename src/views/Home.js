@@ -47,7 +47,8 @@ console.log(todos)
         }
       })
       .then((data) => {
-        setTodos((users) => [...users, data]);
+          //console.log(kullanici," ",data.user)
+          setTodos((users) => [...users, data]);
       })
       .catch((error) => console.log(error));
   };
@@ -109,11 +110,12 @@ console.log(todos)
         </button>
       </div>
       {todos.map((user)=>(
+        kullanici===user.user?
         <Tasks 
         id={user.id}
         task={user.task}
         onDelete={onDelete}
-        />
+        />:console.log(user)
       ))}
 
     </div>
