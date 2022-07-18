@@ -22,7 +22,7 @@ const Tasks = ({ id, onDelete, task, onEdit }) => {
   const [isEdit, setIsEdit] = useState(false);
   const handleEdit = () => {
     console.log("handleEdit çalıştı")
-
+console.log(id,task)
     setIsEdit(!isEdit);
   };
   const handleOnEditSubmit = (event) => {
@@ -36,9 +36,9 @@ const Tasks = ({ id, onDelete, task, onEdit }) => {
     <div>
       <div className="kart">
         {isEdit ? (
-          <form>
+          <form onSubmit={handleOnEditSubmit}>
             <input placeholder="Task" name="task" defaultValue={task} />
-            <button onSubmit={handleOnEditSubmit}>Kaydet</button>
+            <button onSubmit={handleOnEditSubmit}>Save</button>
           </form>
         ) : (
           <div className="button-group">

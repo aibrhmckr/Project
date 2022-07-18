@@ -68,6 +68,8 @@ const Home = ({ setIsLog }) => {
       })
       .catch((error) => console.log(error));
   };
+
+
   console.log(todos," todos yazdırıldı")
   const onEdit = async (id, task) => {
     console.log("onEdit çalıştı")
@@ -103,6 +105,7 @@ const Home = ({ setIsLog }) => {
       .catch((error) => console.log(error));
   };
   console.log(todos);
+
   return (
     <div>
       <button
@@ -148,7 +151,7 @@ const Home = ({ setIsLog }) => {
             onEdit={onEdit}
           />
         ) : (
-          console.log(user)
+          console.clear()
         )
       )}
     </div>
