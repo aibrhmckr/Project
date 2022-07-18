@@ -17,9 +17,8 @@ const Home = ({ setIsLog }) => {
   useEffect(() => {
     fetchData();
   }, []);
-console.log(todos)
+  //console.log(todos)
   const unique_id = uuid();
-  // const small_id = unique_id.slice(0,8)
   const fetchData = async () => {
     await fetch("http://localhost:3004/todos")
       .then((response) => response.json())
@@ -47,8 +46,7 @@ console.log(todos)
         }
       })
       .then((data) => {
-          //console.log(kullanici," ",data.user)
-          setTodos((users) => [...users, data]);
+        setTodos((users) => [...users, data]);
       })
       .catch((error) => console.log(error));
   };
@@ -62,15 +60,49 @@ console.log(todos)
           return;
         } else {
           setTodos(
-            todos.filter((user) => {
-              return user.id !== id;
+            todos.filter((todo) => {
+              return todo.id !== id;
             })
           );
         }
       })
       .catch((error) => console.log(error));
   };
-
+  console.log(todos," todos yazdırıldı")
+  const onEdit = async (id, task) => {
+    console.log("onEdit çalıştı")
+    await fetch(`http://localhost:3004/todos/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        task: task,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => {
+        if (response.status !== 200) {
+          console.log(85)
+          return;
+        } else {
+          console.log(89)
+          return response.json();
+        }
+      })
+      .then((data) => {
+        const updatedTodos = todos.map((todo) => {
+          console.log(96)
+          if (todo.id === id) {
+            todo.task = task;           
+          }
+          return todo;
+        });
+        console.log(task," ")
+        setTodos((todos) => updatedTodos);
+      })
+      .catch((error) => console.log(error));
+  };
+  console.log(todos);
   return (
     <div>
       <button
@@ -94,14 +126,12 @@ console.log(todos)
           className="task-add"
           onClick={() => {
             if (text !== "") {
-              //console.log(text)
-              //console.log(kullanici)
               let list = localStorage.getItem(kullanici);
-              task.push(list);
-              task.push(text);
-              localStorage.removeItem(kullanici);
-              localStorage.setItem(kullanici, task);
-              console.log(localStorage.getItem(kullanici));
+              // task.push(list);
+              // task.push(text);
+              // localStorage.removeItem(kullanici);
+              // localStorage.setItem(kullanici, task);
+              // console.log(localStorage.getItem(kullanici));
               onAdd();
             }
           }}
@@ -109,15 +139,18 @@ console.log(todos)
           Add
         </button>
       </div>
-      {todos.map((user)=>(
-        kullanici===user.user?
-        <Tasks 
-        id={user.id}
-        task={user.task}
-        onDelete={onDelete}
-        />:console.log(user)
-      ))}
-
+      {todos.map((user) =>
+        kullanici === user.user ? (
+          <Tasks
+            id={user.id}
+            task={user.task}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
+        ) : (
+          console.log(user)
+        )
+      )}
     </div>
   );
 };

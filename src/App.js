@@ -15,11 +15,7 @@ function App() {
   const [isLog, setIsLog] = useState(localStorage.getItem("loggd"));
   useEffect(() => {
     setIsLog(localStorage.getItem("loggd"));
-    //console.log(typeof localStorage.getItem("loggd"))
   }, []);
-  //console.log(localStorage.getItem("epost"))
-  console.log(localStorage.getItem("loggd"));
-  console.log(isLog);
   return (
     <div>
       <Routes>
