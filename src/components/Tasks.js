@@ -1,8 +1,8 @@
 import { IconButton } from "@mui/material";
 import { useState } from "react";
 import { Button } from "semantic-ui-react";
-import "../views/Home.css";
-
+//import "../views/Home.css";
+import "./Tasks.css"
 const Tasks = ({ id, onDelete, task, onEdit,isDone,user }) => {
   const handleDelete = () => {
     onDelete(id);
@@ -34,11 +34,13 @@ console.log(id,task)
             <button onSubmit={handleOnEditSubmit}>Save</button>
           </form>
         ) : (
-          <div className="button-group">
+          <div className="task">
             <span style={{textDecoration: isDone?"line-through":"none"}}>{task}</span>
+            <div  className="control_buttons">
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleComplate}>Complete</button>
             <button onClick={handleDelete}>Delete</button>
+            </div>
           </div>
         )}
       </div>

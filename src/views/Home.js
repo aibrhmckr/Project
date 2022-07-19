@@ -68,9 +68,6 @@ const Home = ({ setIsLog }) => {
       })
       .catch((error) => console.log(error));
   };
-
-
-  console.log(todos," todos yazdırıldı")
   const onEdit = async (id, task,isDone,user) => {
     console.log("onEdit çalıştı")
     await fetch(`http://localhost:3004/todos/${id}`, {
