@@ -68,15 +68,15 @@ const Home = ({ setIsLog }) => {
       })
       .catch((error) => console.log(error));
   };
-  const onEdit = async (id, task,isDone,user) => {
-    console.log("onEdit çalıştı")
+  const onEdit = async (id, task, isDone, user) => {
+    console.log("onEdit çalıştı");
     await fetch(`http://localhost:3004/todos/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        id:id,
-        user:user,
+        id: id,
+        user: user,
         task: task,
-        isDone: isDone
+        isDone: isDone,
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -84,23 +84,23 @@ const Home = ({ setIsLog }) => {
     })
       .then((response) => {
         if (response.status !== 200) {
-          console.log(85)
+          console.log(85);
           return;
         } else {
-          console.log(89)
+          console.log(89);
           return response.json();
         }
       })
       .then((data) => {
         const updatedTodos = todos.map((todo) => {
-          console.log(96)
+          console.log(96);
           if (todo.id === id) {
-            todo.task = task;    
-            todo.isDone = isDone       
+            todo.task = task;
+            todo.isDone = isDone;
           }
           return todo;
         });
-        console.log(task," ")
+        console.log(task, " ");
         setTodos((todos) => updatedTodos);
       })
       .catch((error) => console.log(error));
@@ -114,8 +114,9 @@ const Home = ({ setIsLog }) => {
           dispatch(logout());
           setIsLog("false");
         }}
+        className="exit-btn"
       >
-        Çıkış Yap
+        Log out
       </button>
       <div className="add-group">
         <TextField
@@ -125,6 +126,7 @@ const Home = ({ setIsLog }) => {
           onChange={(e) => {
             setText(e.target.value);
           }}
+          className="task-texfield"
         />
         <button
           className="task-add"

@@ -29,17 +29,17 @@ console.log(id,task)
     <div>
       <div className="kart">
         {isEdit ? (
-          <form onSubmit={handleOnEditSubmit}>
+          <form onSubmit={handleOnEditSubmit} className="edit-task">
             <input placeholder="Task" name="task" defaultValue={task} />
             <button onSubmit={handleOnEditSubmit}>Save</button>
           </form>
         ) : (
           <div className="task">
-            <span style={{textDecoration: isDone?"line-through":"none"}}>{task}</span>
+            <span className="task-text" style={{textDecoration: isDone?"line-through":"none"}}>{task}</span>
             <div  className="control_buttons">
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleComplate}>Complete</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button className="edit-button" onClick={handleEdit}>Edit</button>
+            <button className="complate-button" onClick={handleComplate}>Complete</button>
+            <button className="delete-button" onClick={handleDelete}>Delete</button>
             </div>
           </div>
         )}

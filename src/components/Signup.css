@@ -6,11 +6,11 @@
 }
 .signup_button {
   appearance: none;
-  background-color: chocolate;
+  background-color: #ff4742;
   border: 2px solid #1a1a1a;
   border-radius: 5px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
