@@ -1,20 +1,10 @@
 {
   "todos": [
     {
-      "id": "e53168b7-849d-4962-900e-6a1280188012",
+      "id": "e94b7b59-d958-4e2a-80e8-b2b33438596d",
       "user": "faikburak#TR28",
-      "isDone": false,
-      "task": "peynir al"
-    },
-    {
-      "id": "07610a3b-ef59-4c55-857c-81aabb19d92a",
-      "user": "faikburak#TR28",
-      "isDone": false,
-      "task": "peynir al"
-    },
-    {
-      "task": "ekmek al",
-      "id": "21af0f04-47fb-4f3e-b0c5-54e65eb0de96"
+      "task": "sucuk al",
+      "isDone": true
     }
   ]
 }

@@ -3,20 +3,14 @@ import { useState } from "react";
 import { Button } from "semantic-ui-react";
 import "../views/Home.css";
 
-const Tasks = ({ id, onDelete, task, onEdit }) => {
+const Tasks = ({ id, onDelete, task, onEdit,isDone,user }) => {
   const handleDelete = () => {
     onDelete(id);
   };
   //const [Task, setTask] = useState(task);
-  const handleComplate = (event) => {
-    // if (event.target.style.textDecoration) {
-    //   event.target.style.removeProperty("text-decoration");
-    //   //setTask(event.target.style.removeProperty('text-decoration'))
-    // } else {
-    //   event.target.style.setProperty("text-decoration", "line-through");
-    //   setTask(Task.strike());
-    //   console.log(Task);
-    // }
+  const handleComplate = () => {
+    onEdit(id,task,!isDone,user)
+    console.log(isDone)
   };
 
   const [isEdit, setIsEdit] = useState(false);
@@ -28,10 +22,9 @@ console.log(id,task)
   const handleOnEditSubmit = (event) => {
     event.preventDefault();
     console.log("handleOnEditSubmit çalıştı")
-    onEdit(id, event.target.task.value);
+    onEdit(id, event.target.task.value,isDone,user);
     setIsEdit(!isEdit);
   };
-
   return (
     <div>
       <div className="kart">
@@ -42,7 +35,7 @@ console.log(id,task)
           </form>
         ) : (
           <div className="button-group">
-            <span>{task}</span>
+            <span style={{textDecoration: isDone?"line-through":"none"}}>{task}</span>
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleComplate}>Complete</button>
             <button onClick={handleDelete}>Delete</button>

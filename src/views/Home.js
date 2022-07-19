@@ -71,12 +71,15 @@ const Home = ({ setIsLog }) => {
 
 
   console.log(todos," todos yazdırıldı")
-  const onEdit = async (id, task) => {
+  const onEdit = async (id, task,isDone,user) => {
     console.log("onEdit çalıştı")
     await fetch(`http://localhost:3004/todos/${id}`, {
       method: "PUT",
       body: JSON.stringify({
+        id:id,
+        user:user,
         task: task,
+        isDone: isDone
       }),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
@@ -95,7 +98,8 @@ const Home = ({ setIsLog }) => {
         const updatedTodos = todos.map((todo) => {
           console.log(96)
           if (todo.id === id) {
-            todo.task = task;           
+            todo.task = task;    
+            todo.isDone = isDone       
           }
           return todo;
         });
@@ -130,11 +134,6 @@ const Home = ({ setIsLog }) => {
           onClick={() => {
             if (text !== "") {
               let list = localStorage.getItem(kullanici);
-              // task.push(list);
-              // task.push(text);
-              // localStorage.removeItem(kullanici);
-              // localStorage.setItem(kullanici, task);
-              // console.log(localStorage.getItem(kullanici));
               onAdd();
             }
           }}
@@ -147,6 +146,8 @@ const Home = ({ setIsLog }) => {
           <Tasks
             id={user.id}
             task={user.task}
+            isDone={user.isDone}
+            user={user.user}
             onDelete={onDelete}
             onEdit={onEdit}
           />
