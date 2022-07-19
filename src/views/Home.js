@@ -106,13 +106,17 @@ const Home = ({ setIsLog }) => {
       .catch((error) => console.log(error));
   };
   console.log(todos);
-
+ 
+  function InputBoxReset(inputID){
+    document.getElementById(inputID).value = '';
+}
   return (
     <div>
       <button
         onClick={() => {
           dispatch(logout());
           setIsLog("false");
+
         }}
         className="exit-btn"
       >
@@ -133,6 +137,7 @@ const Home = ({ setIsLog }) => {
           onClick={() => {
             if (text !== "") {
               let list = localStorage.getItem(kullanici);
+              InputBoxReset("outlined-basic")
               onAdd();
             }
           }}
