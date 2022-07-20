@@ -8,8 +8,6 @@ import { v4 as uuid } from "uuid";
 import ThemeSwitch from "../components/ThemeSwitch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import * as React from 'react';
-//import PrimarySearchAppBar from "../components/PrimarySearchAppBar";
-
 const Home = ({ setIsLog }) => {
   const dispatch = useDispatch();
 
