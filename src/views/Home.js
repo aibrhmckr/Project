@@ -1,17 +1,21 @@
-import { TextField } from "@mui/material";
+import {TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logout } from "../components/stores/Log";
 import Tasks from "../components/Tasks";
 import "./Home.css";
 import { v4 as uuid } from "uuid";
+import ThemeSwitch from "../components/ThemeSwitch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import * as React from 'react';
+//import PrimarySearchAppBar from "../components/PrimarySearchAppBar";
 
 const Home = ({ setIsLog }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
   const kullanici = localStorage.getItem("epost") + "#TR28";
-  let task = [];
+  //let task = [];
 
   const [todos, setTodos] = useState([]);
   useEffect(() => {
@@ -105,18 +109,34 @@ const Home = ({ setIsLog }) => {
       })
       .catch((error) => console.log(error));
   };
-  console.log(todos);
- 
-  function InputBoxReset(inputID){
-    document.getElementById(inputID).value = '';
-}
+
+  function InputBoxReset(inputID) {
+    document.getElementById(inputID).value = "";
+  }
+
+  const [checked, setChecked] = React.useState(true);
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    console.log("Gece modu açıldı")
+  };
   return (
     <div>
+      <FormControlLabel
+        control={
+          <ThemeSwitch
+            sx={{ m: 1 }}
+            defaultChecked
+            checked={checked}
+            onChange={handleChange}
+            inputProps={{ "aria-label": "controlled" }}
+          />
+        }
+        label="nightMode"
+      />
       <button
         onClick={() => {
           dispatch(logout());
           setIsLog("false");
-
         }}
         className="exit-btn"
       >
@@ -136,8 +156,7 @@ const Home = ({ setIsLog }) => {
           className="task-add"
           onClick={() => {
             if (text !== "") {
-              let list = localStorage.getItem(kullanici);
-              InputBoxReset("outlined-basic")
+              InputBoxReset("outlined-basic");
               onAdd();
             }
           }}

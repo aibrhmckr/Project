@@ -1,3 +1,22 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "3550fef2-638b-4854-a5e6-f9e6efe8ee9c",
+      "user": "alicakir#TR28",
+      "task": "Kaşar al",
+      "isDone": false
+    },
+    {
+      "id": "b05b0314-7680-4678-a1f3-b4defd1b5ce3",
+      "user": "alicakir#TR28",
+      "task": "Ahmeti döv",
+      "isDone": false
+    },
+    {
+      "id": "259c85e0-670f-4d5b-82b3-ab1b73034dbb",
+      "user": "alicakir#TR28",
+      "task": "İremi şamarla",
+      "isDone": false
+    }
+  ]
 }

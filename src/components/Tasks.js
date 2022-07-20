@@ -1,6 +1,4 @@
-import { IconButton } from "@mui/material";
 import { useState } from "react";
-import { Button } from "semantic-ui-react";
 //import "../views/Home.css";
 import "./Tasks.css"
 const Tasks = ({ id, onDelete, task, onEdit,isDone,user }) => {
