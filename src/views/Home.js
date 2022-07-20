@@ -1,4 +1,4 @@
-import {TextField } from "@mui/material";
+import {Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../components/stores/Log";
@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 import ThemeSwitch from "../components/ThemeSwitch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import * as React from 'react';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 const Home = ({ setIsLog }) => {
   const dispatch = useDispatch();
 
