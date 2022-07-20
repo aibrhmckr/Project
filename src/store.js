@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 import logReducer from "./components/stores/Log";
-
+import SettingsSlice from './components/stores/SettingSlice';
 export default configureStore({
   reducer: {
-    Log:logReducer
+    Log:logReducer,
+    Settings:SettingsSlice
   },
 })

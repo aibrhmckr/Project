@@ -9,6 +9,7 @@ import ThemeSwitch from "../components/ThemeSwitch";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import * as React from 'react';
 import AddTaskIcon from '@mui/icons-material/AddTask';
+import LanguageSelector from "../components/LanguageSelector";
 const Home = ({ setIsLog }) => {
   const dispatch = useDispatch();
 
@@ -141,6 +142,7 @@ const Home = ({ setIsLog }) => {
       >
         Log out
       </button>
+      <LanguageSelector/>
       <div className="add-group">
         <TextField
           id="outlined-basic"
