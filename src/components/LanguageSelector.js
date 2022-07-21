@@ -4,27 +4,28 @@ import LanguageIcon from "@mui/icons-material/Language";
 import React, { useState } from "react";
 import { Language } from "./Language";
 const LanguageSelector = () => {
-  const languages = [
+ /* const languages = [
     { id: 1, code: "en", name: "English" },
     { id: 2, code: "tr", name: "Türkçe" },
     { id: 3, code: "de", name: "Deutsch" },
-
   ];
   const [lang, setLang] = useState("tr-TR");
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
-
+    setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-
+    setAnchorEl(null);
   };
   const open = Boolean(anchorEl);
 
+  const changeLanguage = (item) =>{
+    handleClose()
+}*/
   return (
     <div>
-        
-      <Button
+     {/* <Button
         endIcon={<LanguageIcon />}
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
@@ -50,7 +51,7 @@ const LanguageSelector = () => {
             </MenuItem>
           );
         })}
-      </Menu>
+      </Menu>*/}
     </div>
   );
 };

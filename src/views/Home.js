@@ -129,8 +129,7 @@ const Home = ({ setIsLog, theme, setTheme }) => {
 
   return (
     <div className="screen" data-theme={theme}>
-      <FormControlLabel
-        control={
+
           <ThemeSwitch
             sx={{ m: 1 }}
             onClick={() => {
@@ -145,9 +144,7 @@ const Home = ({ setIsLog, theme, setTheme }) => {
             defaultChecked={boolean}
             inputProps={{ "aria-label": "controlled" }}
           />
-        }
-        label="nightMode"
-      />
+
       <button
         onClick={() => {
           dispatch(logout());
@@ -182,13 +179,16 @@ const Home = ({ setIsLog, theme, setTheme }) => {
             if (text !== "") {
               InputBoxReset("outlined-basic");
               onAdd();
+              setText("")
             }
           }}
         >
           Add
         </button>
       </div>
-      {todos.map((user) =>
+      {
+        todos.length===0?<p>Nothing to show here</p>:
+        (todos.map((user) =>
         kullanici === user.user ? (
           <Tasks
             id={user.id}
@@ -201,7 +201,8 @@ const Home = ({ setIsLog, theme, setTheme }) => {
         ) : (
           console.clear()
         )
-      )}
+      ))
+      }
     </div>
   );
 };
