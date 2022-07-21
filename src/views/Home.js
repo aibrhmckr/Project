@@ -1,4 +1,4 @@
-import {Button, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../components/stores/Log";
@@ -7,10 +7,10 @@ import "./Home.css";
 import { v4 as uuid } from "uuid";
 import ThemeSwitch from "../components/ThemeSwitch";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import * as React from 'react';
-import AddTaskIcon from '@mui/icons-material/AddTask';
+import * as React from "react";
+import AddTaskIcon from "@mui/icons-material/AddTask";
 import LanguageSelector from "../components/LanguageSelector";
-const Home = ({ setIsLog }) => {
+const Home = ({ setIsLog, theme, setTheme }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState("");
@@ -114,20 +114,35 @@ const Home = ({ setIsLog }) => {
     document.getElementById(inputID).value = "";
   }
 
-  const [checked, setChecked] = React.useState(true);
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-    console.log("Gece modu açıldı")
-  };
+  // const [checked, setChecked] = React.useState(true);
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  //   console.log("Gece modu açıldı");
+  // };
+
+  let boolean;
+  if (localStorage.getItem("theme") === "light") {
+    boolean = false;
+  } else {
+    boolean = true;
+  }
+
   return (
-    <div>
+    <div className="screen" data-theme={theme}>
       <FormControlLabel
         control={
           <ThemeSwitch
             sx={{ m: 1 }}
-            defaultChecked
-            checked={checked}
-            onChange={handleChange}
+            onClick={() => {
+              if (theme === "light") {
+                setTheme("dark");
+                localStorage.setItem("theme", "dark");
+              } else {
+                setTheme("light");
+                localStorage.setItem("theme", "light");
+              }
+            }}
+            defaultChecked={boolean}
             inputProps={{ "aria-label": "controlled" }}
           />
         }
@@ -142,9 +157,17 @@ const Home = ({ setIsLog }) => {
       >
         Log out
       </button>
-      <LanguageSelector/>
+      <LanguageSelector />
       <div className="add-group">
-        <TextField
+        <input
+          label="Todo"
+          id="outlined-basic"
+          className="task-texfield"
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
+        ></input>
+        {/* <TextField
           id="outlined-basic"
           label="Todo Header"
           variant="outlined"
@@ -152,7 +175,7 @@ const Home = ({ setIsLog }) => {
             setText(e.target.value);
           }}
           className="task-texfield"
-        />
+        /> */}
         <button
           className="task-add"
           onClick={() => {

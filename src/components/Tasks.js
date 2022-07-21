@@ -35,9 +35,9 @@ console.log(id,task)
           <div className="task">
             <span className="task-text" style={{textDecoration: isDone?"line-through":"none"}}>{task}</span>
             <div  className="control_buttons">
-            <button className="edit-button" onClick={handleEdit}>Edit</button>
-            <button className="complate-button" onClick={handleComplate}>Complete</button>
-            <button className="delete-button" onClick={handleDelete}>Delete</button>
+            <button className="edit-button" onClick={handleEdit}><p className="button-text">Edit</p></button>
+            <button className="complate-button" onClick={handleComplate}><p className="button-text">Complete</p></button>
+            <button className="delete-button" onClick={handleDelete}><p className="button-text">Delete</p></button>
             </div>
           </div>
         )}

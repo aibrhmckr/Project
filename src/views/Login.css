@@ -89,7 +89,9 @@ a{
     background-color: var(--form-bg);
     margin-top: 10%;
 }
-
+.tab{
+    
+}
 .tabs{
     background-color: var(--background);
     color: var(--text-primary);

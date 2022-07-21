@@ -1,61 +1,95 @@
-
-.task-texfield{
-  background-color: white;
+:root {
+  --background: #ffffff;
+  --text-primary: #000;
+  --border: #333;
+  --form-bg: #fff;
+  --add-button: rgb(9, 160, 230);
+  --kart-color: white;
+}
+[data-theme="dark"] {
+  --background: #2a2d35;
+  --text-primary: #fff;
+  --border: #808080;
+  --form-bg: #191919;
+  --add-button: rgb(9, 160, 230);
+  --kart-color: #35383f;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.screen{
+  background-color: var(--background);
+  color: var(--text-primary);
+  height: 100vh; 
+  /* display: flex; */
+  flex-direction: column;
+  font-size: .8rem;
+  transition: all .5s;
+}
+.task-texfield {
+  background-color: var(--kart-color); /*white*/
   border-radius: 5px;
+  color: var(--text-primary);
+  font-size: medium;
 }
 .task-add {
   appearance: button;
-  background-color: transparent;
-  background-image: linear-gradient(to bottom, #fff, #f8eedb);
-  border: 0 solid #e5e7eb;
-  border-radius: .5rem;
+  background-color: var(--add-button);
+  /* background-image: linear-gradient(to bottom, #fff, #f8eedb); */
+  border: 0 solid var(--background);
+  border-radius: 0.3rem;
   box-sizing: border-box;
-  color: #482307;
+  color: var(--text-primary);
   column-gap: 1rem;
   cursor: pointer;
   display: flex;
-  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 100%;
   font-weight: 700;
   line-height: 24px;
   margin: 0;
   outline: 2px solid transparent;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
   text-align: center;
   text-transform: none;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+  box-shadow: 1px 1px 2px var(--border);
 }
 
 .task-add:active {
-  background-color: #f3f4f6;
-  box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+  background-color: var(--add-button);
+  box-shadow: 1px 1px 3px var(--border);
   transform: translateY(0.125rem);
 }
 
-.task-add:focus {
+/* .task-add:focus {
   box-shadow: rgba(72, 35, 7, .46) 0 0 0 4px, -6px 8px 10px rgba(81,41,10,0.1), 0px 2px 2px rgba(81,41,10,0.2);
+} */
+.add-group {
+  display: flex;
+  flex-direction: row;
+  margin-left: 40%;
 }
-.add-group{
-    display: flex;
-    flex-direction: row;
-    margin-left: 40%;
+.kart {
+  border-radius: 7px;
+  border: 1px solid grey;
+  box-shadow: 0.5px 0.5px 0px #888888;
+  margin-bottom: 8px;
+  padding: 4px;
+  margin: 15px;
+  background-color: var(--kart-color);
+  display: flex;
+  flex-direction: row;
 }
-.kart{
-    border-radius: 7px;
-    border: 1px solid grey;
-    box-shadow: 1.5px 1.5px 0px #888888;
-    margin-bottom: 8px;
-    padding: 4px;
-    margin: 15px;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-}
-.button-group{
+
+.button-group {
   margin-inline-start: 88.8%;
   display: flex;
   flex-direction: row;
@@ -69,10 +103,10 @@
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
-  color: black;
+  color: var(--text-primary);
   cursor: pointer;
   display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
   font-size: 16px;
   font-weight: 800;
   line-height: 16px;
@@ -92,9 +126,9 @@
 .exit-btn:active {
   background-color: initial;
   background-position: 0 0;
-  color: black;
+  color: var(--text-primary);
 }
 
 .exit-btn:active {
-  opacity: .5;
+  opacity: 0.5;
 }

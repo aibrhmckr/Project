@@ -7,14 +7,21 @@
   margin: 5px;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: var(--kart-color);
   padding: 1%;
+}
+.task-text{
+  color: var(--text-primary);
+  font-size: medium;
 }
 .edit-task {
   right: 0;
   margin-right: 20px;
 }
 /**/
+.button-text{
+  color: var(--text-primary);
+}
 .edit-button {
   background: #f07605;
   margin-top: -9px;

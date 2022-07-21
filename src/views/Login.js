@@ -95,6 +95,7 @@ else{
                 value={value}
                 onChange={handleChange}
                 aria-label="basic tabs example"
+                className="tab"
               >
                 <Tab  label={<b className="tabs">Giriş Yap</b>} {...a11yProps(0)} />
                 <Tab  label={<b className="tabs">Üye Ol</b>} {...a11yProps(1)} />
