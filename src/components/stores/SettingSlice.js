@@ -17,7 +17,7 @@ const settingsSlice = createSlice({
         },
         changeTheme(state,action){
             state.theme=action.payload
-            localStorage.setItem('theme'==='light'?'dark':'light')
+            //localStorage.setItem('theme'==='light'?'dark':'light')
         }
 
     }

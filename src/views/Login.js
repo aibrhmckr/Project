@@ -44,29 +44,46 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-const Login = ({ setIsLog }) => {
+const Login = ({ setIsLog,theme,setTheme }) => {
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  let boolean
-  const [theme,setTheme]=useLocalStorage('theme'?'dark':'light')
-  const switchTheme=()=>{
-    const newTheme=theme==='light'?'dark':'light'
+  // let boolean
+  // const [theme,setTheme]=useLocalStorage('theme'?'dark':'light')
+  // const switchTheme=()=>{
+  //   const newTheme=theme==='light'?'dark':'light'
    
-    if(newTheme==='light'){
-      boolean=false;
-    }
-    else{
-      boolean=true
-    }
-    setTheme(newTheme)
-  }
-
+  //   if(newTheme==='light'){
+  //     boolean=false;
+  //   }
+  //   else{
+  //     boolean=true
+  //   }
+  //   setTheme(newTheme)
+  // }
+let boolean
+if(localStorage.getItem("theme")==="light"){
+  boolean=false;
+}
+else{
+  boolean=true;
+}
   return (
     <div className="log" data-theme={theme}>
       <div className="tabbar">
-        <ThemeSwitch onClick={switchTheme} defaultChecked={boolean}/>
+        <ThemeSwitch onClick={()=>{
+          if(theme==="light"){
+            setTheme("dark")
+            localStorage.setItem("theme","dark")
+          }
+          else{
+            setTheme("light")
+            localStorage.setItem("theme","light")
+          }
+        }} 
+        defaultChecked={boolean}
+        />
         <h3 className="merhaba">Merhaba,</h3>
         <h5 className="girisYap">Giriş yap veya hesap oluştur!</h5>
         <p className="divider"></p>
