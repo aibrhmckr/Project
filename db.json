@@ -1,10 +1,3 @@
 {
-  "todos": [
-    {
-      "id": "5dc75388-4edd-4bd6-a150-0fcefdbfd60b",
-      "user": "alicakir#TR28",
-      "isDone": false,
-      "task": "kitap al"
-    }
-  ]
+  "todos": []
 }

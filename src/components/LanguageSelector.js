@@ -3,8 +3,9 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LanguageIcon from "@mui/icons-material/Language";
 import React, { useState } from "react";
 import { Language } from "./Language";
+import { LOCALES } from "./i18n";
 const LanguageSelector = () => {
- /* const languages = [
+  const languages = [
     { id: 1, code: "en", name: "English" },
     { id: 2, code: "tr", name: "Türkçe" },
     { id: 3, code: "de", name: "Deutsch" },
@@ -22,10 +23,12 @@ const LanguageSelector = () => {
 
   const changeLanguage = (item) =>{
     handleClose()
-}*/
+}
+
+const [locale,setLocale]=useState(LOCALES.ENGLISH)
   return (
     <div>
-     {/* <Button
+      <Button
         endIcon={<LanguageIcon />}
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
@@ -46,12 +49,16 @@ const LanguageSelector = () => {
       >
         {languages.map((item) => {
           return (
-            <MenuItem key={item.id} onClick={() => {}}>
+            <MenuItem key={item.id} onClick={() => {
+              console.log(item.name,"clicked")
+              //localStorage.setItem()
+              handleClose()
+            }}>
               {item.name}
             </MenuItem>
           );
         })}
-      </Menu>*/}
+      </Menu>
     </div>
   );
 };

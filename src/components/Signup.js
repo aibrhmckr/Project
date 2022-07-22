@@ -76,7 +76,7 @@ const Signup = ({ setIsLog }) => {
         />
       </div>
       <button className="signup_button" onClick={clickHandler}>
-        Kaydol
+        <b>Üye Ol</b>
       </button>
     </div>
   );
