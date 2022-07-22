@@ -8,8 +8,16 @@ export default{
         "email":"Email",
         "password":"Passwort",
         "name":"Name",
-        "Surname":"Nachname",
+        "surname":"Nachname",
         "signin-button":"Einloggen",
-        "signup-button":"Anmelden"
+        "signup-button":"Anmelden",
+        //
+        "logout-button":"Ausloggen",
+        "language-button":"Sprache",
+        "empty-message":"Hier gibt es nichts zu zeigen!",
+        "add-button":"Hinzufügen",
+        "edit-button":"Bearbeiten",
+        "complate-button":"Komplet",
+        "delete-button":"Löschen"
     }
 }

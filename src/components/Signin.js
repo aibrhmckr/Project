@@ -6,7 +6,9 @@ import { useDispatch } from "react-redux";
 
 import "./Signin.css";
 import { Users } from "../api/gecici";
-
+import { I18nProvider } from "./i18n";
+import { LOCALES } from "./i18n";
+import translate from "./i18n/translate";
 const Signin = ({ setIsLog }) => {
   //const epost = useSelector((state) => state.Log.value.epost);
   //const password = useSelector((state) => state.Log.value.password);
@@ -29,10 +31,15 @@ const Signin = ({ setIsLog }) => {
       dispatch(logging());
     }
   };
+  //22.07.2022
+  const [locale,setLocale]=useState(localStorage.getItem("locale"))
+
   return (
+    <I18nProvider locale={locale}>
     <div className="user_info">
+      
       <div>
-        <b>E-Posta</b>
+        <b>{translate("email")}</b>
         <input
           className="e-post__field"
           onChange={(e) => {
@@ -42,7 +49,7 @@ const Signin = ({ setIsLog }) => {
       </div>
 
       <div>
-        <b>Şifre</b>
+        <b>{translate("password")}</b>
         <input
           className="password__field"
           type="password"
@@ -52,9 +59,10 @@ const Signin = ({ setIsLog }) => {
         />
       </div>
       <button className="login_button" onClick={LoginHandler}>
-        <b>Giriş Yap</b>
+        <b>{translate("signin-button")}</b>
       </button>
     </div>
+    </I18nProvider>
   );
 };
 export default Signin;

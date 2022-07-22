@@ -10,6 +10,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import * as React from "react";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import LanguageSelector from "../components/LanguageSelector";
+import { I18nProvider } from "../components/i18n";
+import translate from "../components/i18n/translate";
 const Home = ({ setIsLog, theme, setTheme }) => {
   const dispatch = useDispatch();
 
@@ -126,84 +128,79 @@ const Home = ({ setIsLog, theme, setTheme }) => {
   } else {
     boolean = true;
   }
+  ///22.02.2022
+  const [locale, setLocale] = React.useState(localStorage.getItem("locale"));
 
   return (
-    <div className="screen" data-theme={theme}>
-
-          <ThemeSwitch
-            sx={{ m: 1 }}
-            onClick={() => {
-              if (theme === "light") {
-                setTheme("dark");
-                localStorage.setItem("theme", "dark");
-              } else {
-                setTheme("light");
-                localStorage.setItem("theme", "light");
-              }
-            }}
-            defaultChecked={boolean}
-            inputProps={{ "aria-label": "controlled" }}
-          />
-
-      <button
-        onClick={() => {
-          dispatch(logout());
-          setIsLog("false");
-        }}
-        className="exit-btn"
-      >
-        Log out
-      </button>
-      <LanguageSelector />
-      <div className="add-group">
-        <input
-          label="Todo"
-          id="outlined-basic"
-          className="task-texfield"
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        ></input>
-        {/* <TextField
-          id="outlined-basic"
-          label="Todo Header"
-          variant="outlined"
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-          className="task-texfield"
-        /> */}
-        <button
-          className="task-add"
+    <I18nProvider locale={locale}>
+      <div className="screen" data-theme={theme}>
+        <ThemeSwitch
+          sx={{ m: 1 }}
           onClick={() => {
-            if (text !== "") {
-              InputBoxReset("outlined-basic");
-              onAdd();
-              setText("")
+            if (theme === "light") {
+              setTheme("dark");
+              localStorage.setItem("theme", "dark");
+            } else {
+              setTheme("light");
+              localStorage.setItem("theme", "light");
             }
           }}
+          defaultChecked={boolean}
+          inputProps={{ "aria-label": "controlled" }}
+        />
+
+        <button
+          onClick={() => {
+            dispatch(logout());
+            setIsLog("false");
+          }}
+          className="exit-btn"
         >
-          Add
+          {translate("logout-button")}
         </button>
-      </div>
-      {
-        todos.length===0?<p>Nothing to show here</p>:
-        (todos.map((user) =>
-        kullanici === user.user ? (
-          <Tasks
-            id={user.id}
-            task={user.task}
-            isDone={user.isDone}
-            user={user.user}
-            onDelete={onDelete}
-            onEdit={onEdit}
-          />
+        <LanguageSelector />
+        <div className="add-group">
+          <input
+            label="Todo"
+            id="outlined-basic"
+            className="task-texfield"
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="task-add"
+            onClick={() => {
+              if (text !== "") {
+                InputBoxReset("outlined-basic");
+                onAdd();
+                setText("");
+              }
+            }}
+          >
+            {translate("add-button")}
+          </button>
+        </div>
+        {todos.length === 0 ? (
+          <p>{translate("empty-message")}</p>
         ) : (
-          console.clear()
-        )
-      ))
-      }
-    </div>
+          todos.map((user) =>
+            kullanici === user.user ? (
+              <Tasks
+                id={user.id}
+                task={user.task}
+                isDone={user.isDone}
+                user={user.user}
+                onDelete={onDelete}
+                onEdit={onEdit}
+              />
+            ) : (
+              console.clear()
+            )
+          )
+        )}
+      </div>
+    </I18nProvider>
   );
 };
 export default Home;

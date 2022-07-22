@@ -57,9 +57,10 @@ const Login = ({ setIsLog, theme, setTheme }) => {
   ////////////////21.07.2022
 
   ///22.07.2022
-  
+  const [locale,setLocale]=React.useState(localStorage.getItem("locale"))
+
   return (
-    <I18nProvider locale={LOCALES.ENGLISH}>
+    <I18nProvider locale={locale}>
       <div className="log" data-theme={theme}>
         <div className="tabbar">
           <ThemeSwitch

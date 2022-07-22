@@ -8,8 +8,16 @@ export default{
         "email":"E-Posta",
         "password":"Şifre",
         "name":"Ad",
-        "Surname":"Soyad",
+        "surname":"Soyad",
         "signin-button":"Giriş Yap",
-        "signup-button":"Sign up"
+        "signup-button":"Kaydol",
+        //
+        "logout-button":"Çıkış Yap",
+        "language-button":"Dil",
+        "empty-message":"Burada gösterilecek bir şey yok!",
+        "add-button":"Ekle",
+        "edit-button":"Düzenle",
+        "complate-button":"Tamamla",
+        "delete-button":"Sil"
     }
 }
