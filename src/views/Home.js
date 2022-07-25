@@ -182,7 +182,7 @@ const Home = ({ setIsLog, theme, setTheme }) => {
           </button>
         </div>
         {todos.length === 0 ? (
-          <p>{translate("empty-message")}</p>
+          <p className="empty-message">{translate("empty-message")}</p>
         ) : (
           todos.map((user) =>
             kullanici === user.user ? (

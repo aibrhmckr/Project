@@ -28,7 +28,7 @@ const LanguageSelector = () => {
   return (
     <I18nProvider locale={locale}>
       <div>
-        <Button
+        <Button className="language-button"
           endIcon={<LanguageIcon />}
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}

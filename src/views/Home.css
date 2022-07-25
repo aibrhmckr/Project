@@ -33,6 +33,8 @@
   border-radius: 5px;
   color: var(--text-primary);
   font-size: medium;
+  height: 59px;
+  width: 350px;
 }
 .task-add {
   appearance: button;
@@ -76,6 +78,14 @@
   display: flex;
   flex-direction: row;
   margin-left: 40%;
+
+  justify-content: center;
+  align-items: center;
+  pad: 1.5rem;
+  width: 350px;
+  margin: auto;
+  margin-top: 1%;
+
 }
 .kart {
   border-radius: 7px;
@@ -131,4 +141,21 @@
 
 .exit-btn:active {
   opacity: 0.5;
+}
+.empty-message{
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pad: 1.5rem;
+    width: 350px;
+    margin: auto;
+    box-shadow: 0px 0px 12px var(--border);
+    border-radius: 5px;
+    background-color: var(--form-bg);
+    margin-top: 3%;
+
 }
