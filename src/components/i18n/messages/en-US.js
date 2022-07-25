@@ -11,6 +11,7 @@ export default{
         "surname":"Surname",
         "signin-button":"Sign in",
         "signup-button":"Sign up",
+        "save-button":"Save",
 //
         "logout-button":"Log out",
         "language-button":"Language",

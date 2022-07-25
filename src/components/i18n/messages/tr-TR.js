@@ -11,6 +11,7 @@ export default{
         "surname":"Soyad",
         "signin-button":"Giriş Yap",
         "signup-button":"Kaydol",
+        "save-button":"Kaydet",
         //
         "logout-button":"Çıkış Yap",
         "language-button":"Dil",

@@ -115,13 +115,6 @@ const Home = ({ setIsLog, theme, setTheme }) => {
   function InputBoxReset(inputID) {
     document.getElementById(inputID).value = "";
   }
-
-  // const [checked, setChecked] = React.useState(true);
-  // const handleChange = (event) => {
-  //   setChecked(event.target.checked);
-  //   console.log("Gece modu açıldı");
-  // };
-
   let boolean;
   if (localStorage.getItem("theme") === "light") {
     boolean = false;

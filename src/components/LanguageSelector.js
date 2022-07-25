@@ -1,10 +1,11 @@
 import { Button, Menu, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import LanguageIcon from "@mui/icons-material/Language";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Language } from "./Language";
 import { I18nProvider, LOCALES } from "./i18n";
 import translate from "./i18n/translate";
+import "./LanguageSelector.css";
 const LanguageSelector = () => {
   const languages = [
     { id: 1, code: "en", name: "English" },
@@ -18,8 +19,7 @@ const LanguageSelector = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
-    window.location.reload()
-
+    window.location.reload();
   };
   const open = Boolean(anchorEl);
 
@@ -28,15 +28,16 @@ const LanguageSelector = () => {
   return (
     <I18nProvider locale={locale}>
       <div>
-        <Button className="language-button"
-          endIcon={<LanguageIcon />}
+        <Button
+          className="language-button"
+          endIcon={<LanguageIcon className="language-button" />}
           id="basic-button"
           aria-controls={open ? "basic-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
           onClick={handleClick}
         >
-          {translate("language-button")}
+          <p className="language-button">{translate("language-button")}</p>
         </Button>
         <Menu
           id="basic-menu"
