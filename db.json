@@ -1,3 +1,19 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": "9f9534ba-d96e-4609-9ed7-b216abe23166",
+      "user": "alicakir#TR28",
+      "isDone": false,
+      "task": "kitap al"
+    }
+  ],
+  "users": [
+    {
+      "name": "Ali İbrahim",
+      "surname": "Çakır",
+      "email": "alicakir",
+      "password": "12345678",
+      "id": 1
+    }
+  ]
 }
