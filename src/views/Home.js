@@ -123,7 +123,13 @@ const Home = ({ setIsLog, theme, setTheme }) => {
   }
   ///22.02.2022
   const [locale, setLocale] = React.useState(localStorage.getItem("locale"));
-
+  //25.02.2022
+  let Users = [];
+  todos.map((user) => {
+    if (kullanici === user.user) {
+      Users.push(user);
+    }
+  });
   return (
     <I18nProvider locale={locale}>
       <div className="screen" data-theme={theme}>
@@ -174,23 +180,19 @@ const Home = ({ setIsLog, theme, setTheme }) => {
             {translate("add-button")}
           </button>
         </div>
-        {todos.length === 0 ? (
+        {Users.length === 0 ? (
           <p className="empty-message">{translate("empty-message")}</p>
         ) : (
-          todos.map((user) =>
-            kullanici === user.user ? (
-              <Tasks
-                id={user.id}
-                task={user.task}
-                isDone={user.isDone}
-                user={user.user}
-                onDelete={onDelete}
-                onEdit={onEdit}
-              />
-            ) : (
-              console.clear()
-            )
-          )
+          Users.map((user) => (
+            <Tasks
+              id={user.id}
+              task={user.task}
+              isDone={user.isDone}
+              user={user.user}
+              onDelete={onDelete}
+              onEdit={onEdit}
+            />
+          ))
         )}
       </div>
     </I18nProvider>
